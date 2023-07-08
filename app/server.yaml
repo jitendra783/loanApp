@@ -1,0 +1,32 @@
+version: 1.0
+
+server:
+  host: $SERVER_HOST
+  port: $SERVER_PORT
+log:
+  path: $LOG_FILE_PATH
+  level: $LOG_LEVEL 
+
+database:
+  mysql:
+    host: $HOST
+    port: $PORT
+    user: $USER
+    password: $PASSWORD
+    db: $DBNAME
+    sslmode: $SSLMODE  
+certificate:
+  path: $CERT_PATH
+  aes_private_key: $CERT_AES_PRIVATE_KEY
+thirdparty:
+  restapi:
+    retrycount : $API_RETRY_COUNT
+    retrywaittime : $API_RETRY_WAIT_TIME
+    timeout : $RETRY_TIMEOUT
+  grpc:
+    position:
+      url: $POSITION_GRPC_HOST
+      timeout: $POSITION_GRPC_TIMEOUT
+    kafka:
+      url: $KAFKA_GRPC_HOST
+      timeout: $KAFKA_GRPC_TIMEOUT
