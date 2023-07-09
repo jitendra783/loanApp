@@ -12,6 +12,7 @@ func ErrorInit() {
 	ErrorInfo[BadRequest] = &Error{ErrorName: BadRequest, Description: "missing value or inputs", ErrorCode: 1010}
 	ErrorInfo[InternalServerError] = &Error{ErrorName: InternalServerError, Description: "internal server error", ErrorCode: 1021}
 	logger.Log().Info("ErrorInit successful")
+	//logger.Log().Info("ErrorInit successful")
 
 }
 func (e *Error) GetErrorDetails(errMsg string) Error {
