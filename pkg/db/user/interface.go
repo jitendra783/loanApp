@@ -11,8 +11,9 @@ type userObj struct {
 }
 type UserGroup interface {
 	UserDeleteByID(c *gin.Context) error
-	GetUserDetailByID(c *gin.Context) (User, error)
+	GetUserByID(c *gin.Context,id string) (User, error)
 	UpdateUserByID(c *gin.Context) (User, error)
+	CreateUser(c *gin.Context, userinfo UserForm) (User, error)
 }
 
 func NewUserDBGroup(db *sql.DB) UserGroup {
