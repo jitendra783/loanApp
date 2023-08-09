@@ -17,7 +17,7 @@ func Router(obj service.ServiceGroupLayer, logger *zap.Logger) *gin.Engine {
 	userGroup := router.Group("user")
 	{
 		userGroup.POST("/register", obj.GetV1Service().UserRegister)
-		userGroup.GET("/getdetail", obj.GetV1Service().GetUserID)
+		userGroup.GET("/getdetail/:id", obj.GetV1Service().GetUserByID)
 		userGroup.PUT("/update", obj.GetV1Service().UserUpdate)
 		userGroup.DELETE("/delete", obj.GetV1Service().UserDeleteByID)
 	}

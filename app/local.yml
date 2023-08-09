@@ -15,21 +15,18 @@ database:
     port: 3306
     user: root
     password: Jitu@2783
-    db: myloanDB
-    sslmode: disable
+            db: myloanDB
+            sslmode: disable
 
-certificate:
-  path: "./../pkg/middlewares/id_rsa.pub"
-  aes_private_key: "Ue[oPw5s_[k=u#W("
-thirdparty:
+# certificate:
+#   path: "./../pkg/middlewares/id_rsa.pub"
+#   aes_private_key: "Ue[oPw5s_[k=u#W("
+thirdparty: 
   restapi:
     retrycount : 2
     retrywaittime : 100
     timeout : 200
   grpc:
-    position:
-      url: "loanApp-grpc:8001"
-      timeout: 500
     kafka:
       url: "loanApp-grpc:8001"
       timeout: 500 

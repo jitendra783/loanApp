@@ -11,6 +11,9 @@ func ErrorInit() {
 	ErrorInfo[NoDataFound] = &Error{ErrorName: NoDataFound, Description: "no data fund system failure", ErrorCode: 1006}
 	ErrorInfo[BadRequest] = &Error{ErrorName: BadRequest, Description: "missing value or inputs", ErrorCode: 1010}
 	ErrorInfo[InternalServerError] = &Error{ErrorName: InternalServerError, Description: "internal server error", ErrorCode: 1021}
+	ErrorInfo[GetDBError] = &Error{ErrorName: "DBError", Description: "Failed to get data", ErrorCode: 1007}
+	ErrorInfo[AddDBError] = &Error{ErrorName: "DBError", Description: "Failed to update/insert data", ErrorCode: 1008}
+	ErrorInfo[DelDBError] = &Error{ErrorName: "DBError", Description: "Failed to Delete the data", ErrorCode: 1009}
 	logger.Log().Info("ErrorInit successful")
 
 }
