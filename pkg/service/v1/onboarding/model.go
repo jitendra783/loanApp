@@ -1,7 +1,6 @@
 package onboarding
 
 import (
-	dbuser "loanApp/pkg/db/onbaord"
 	e "loanApp/pkg/error"
 )
 
@@ -17,8 +16,8 @@ type GetMpinParam struct {
 }
 
 type ApiResponse struct {
-	Data    []dbuser.User `json:"data,omitempty"`
-	Success bool          `json:"success"`
-	Errors  []e.Error     `json:"error,omitempty"`
-	Message string        `json:"message"`
+	Data    string    `json:"data,omitempty"`
+	Success bool      `json:"success"`
+	Errors  []e.Error `json:"error,omitempty"`
+	Message string    `json:"message"`
 }

@@ -6,17 +6,17 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type onbaord struct {
+type onbaordObj struct {
 	db db.DBLayer
 }
 
 func OnboardService(db db.DBLayer) OnboardGroup {
-	return onbaord{db: db}
+	return &onbaordObj{db: db}
 }
 
 type OnboardGroup interface {
-	SendOtp() error
-	VerifyOtp() error
-	MpinGeneration(c *gin.Context) error
-	MpinVarification(c *gin.Context) error
+	SendOtp(c *gin.Context) 
+	VerifyOtp(c *gin.Context) 
+	SetMpin(c *gin.Context) 
+	VerifyMpin(c *gin.Context) 
 }

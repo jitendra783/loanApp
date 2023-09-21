@@ -3,7 +3,7 @@ package db
 import (
 	"database/sql"
 	"loanApp/pkg/db/loan"
-	onboard "loanApp/pkg/db/onboard"
+	"loanApp/pkg/db/onboard"
 	"loanApp/pkg/db/user"
 
 	"gorm.io/gorm"
