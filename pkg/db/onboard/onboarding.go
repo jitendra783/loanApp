@@ -31,11 +31,11 @@ func (u *userObj) CreateUser(c *gin.Context, userinfo UserForm) (User, error) {
 	// 	log.Fatal("Failed to execute the query:", err)
 	// 	return user, err
 	// }
+
 	user.Id = id
 	user.Create_at = time.Now()
 	user.First_Name = userinfo.Name
 	user.Mobile_no = userinfo.Mobile
-
 	return user, nil
 }
 
