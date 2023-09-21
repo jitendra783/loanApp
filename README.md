@@ -1,3 +1,3 @@
-# loanApp
+# laonApp
+This Apis I wrote for learning and understanding purpose 
 
-this repository is about a loan App 
