@@ -19,7 +19,7 @@ func (u *userObj) CreateUser(c *gin.Context, userinfo UserForm) (User, error) {
 	id := utils.GenerateRandomString()
 	query := "insert into mylaon.user (id ,first_name, last_name,email,mobile_no,pan_card,mpin ) value( ? ,?,NULL,NULL,?,NULL,NULL)"
 	// Execute the query
-	_, err := u.msql.Exec(query, id, userinfo.Name, userinfo.Mobile)
+	_, err := u.msql.Exec(query, id, userinfo.FirstName, userinfo.Mobile)
 	logger.Log().Debug("query", zap.Any("q", query))
 	if err != nil {
 		log.Fatal("Failed to execute the query:", err)
@@ -33,7 +33,7 @@ func (u *userObj) CreateUser(c *gin.Context, userinfo UserForm) (User, error) {
 	// }
 	user.Id = id
 	user.Create_at = time.Now()
-	user.First_Name = userinfo.Name
+	user.First_Name = userinfo.FirstName
 	user.Mobile_no = userinfo.Mobile
 
 	return user, nil

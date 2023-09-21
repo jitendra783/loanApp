@@ -40,7 +40,7 @@ func Start() error {
 	databases = make([]*gorm.DB, 0)
 	databases = append(databases, mysqlConn)
 
-	dbObj := db.NewDbObj(mysqlConnectionSql)
+	dbObj := db.NewDbObj(mysqlConnectionSql,mysqlConn)
 
 	serviceObj := serv.NewServiceGroupObject(dbObj)
 
