@@ -45,23 +45,21 @@ func customLogger(logger *zap.Logger) gin.HandlerFunc {
 		query := c.Request.URL.RawQuery
 		c.Next()
 
-		if c.FullPath() != "/health" {
-			latency := time.Since(start).Milliseconds()
-			userID := c.GetString(config.USERID)
-			uID := c.GetString(config.REQUESTID)
-			ucc := c.GetString(config.UCC)
-			logger.Info(path,
-				zap.String("requestID", uID),
-				zap.String("ucc", ucc),
-				zap.String("userId", userID),
-				zap.Int("status", c.Writer.Status()),
-				zap.String("method", c.Request.Method),
-				zap.String("path", path),
-				zap.String("query", query),
-				zap.String("user-agent", c.Request.UserAgent()),
-				zap.String("errors", c.Errors.ByType(gin.ErrorTypePrivate).String()),
-				zap.Int64("latency", latency),
-			)
-		}
+			if c.FullPath() != "/health" {
+				latency := time.Since(start).Milliseconds()
+				userID := c.GetString(config.USERID)
+				uID := c.GetString(config.REQUESTID)
+				logger.Info(path,
+					zap.String("requestID", uID),
+					zap.String("userId", userID),
+					zap.Int("status", c.Writer.Status()),
+					zap.String("method", c.Request.Method),
+					zap.String("path", path),
+					zap.String("query", query),
+					zap.String("user-agent", c.Request.UserAgent()),
+					zap.String("errors", c.Errors.ByType(gin.ErrorTypePrivate).String()),
+					zap.Int64("latency", latency),
+				)
+			}
 	}
 }
